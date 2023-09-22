@@ -7,6 +7,7 @@ result = re.findall(pattern, text)
 
 
 palindrome_list = []
+
 if result:
     for element in result:
         first_word = element[1]
@@ -17,7 +18,8 @@ if result:
     if not palindrome_list:
         print("No mirror words!")
     else:
-        print("The mirror words are:")
+        print(f"The mirror words are:")
         print(', '.join(palindrome_list))
 else:
+
     print("No word pairs found!\nNo mirror words!")
