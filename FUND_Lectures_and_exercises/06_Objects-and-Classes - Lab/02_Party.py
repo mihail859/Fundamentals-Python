@@ -9,3 +9,5 @@ while command != "End":
     party.people.append(command)
 
     command = input()
+print(f"Going: {', '.join(party.people)}")
+print(f"Total: {len(party.people)}")
