@@ -16,3 +16,15 @@ while True:
         if farming_items["shards"] >= 250:
             is_obtained = True
             print("Shadowmourne obtained!")
+            for key, value in farming_items.keys():
+                if key != "shards":
+                    print(f"{key}: {value}")
+            break
+        if farming_items["fragments"] >= 250:
+            is_obtained = True
+            print("Valanyr obtained!")
+            for key, value in farming_items.keys():
+                if key != "fragments":
+                    print(f"{key}: {value}")
+            break
+        if    
