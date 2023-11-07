@@ -10,4 +10,5 @@ for i in range(n):
 
 for key, val in students_dict_info.items():
     avg_score = sum(val) / len(val)
-    print(f"{key} -> {avg_score:.2f}")
+    if avg_score >= 4.50:
+        print(f"{key} -> {avg_score:.2f}")
