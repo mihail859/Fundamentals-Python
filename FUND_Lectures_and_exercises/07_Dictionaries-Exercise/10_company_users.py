@@ -12,3 +12,8 @@ while True:
         break
     name, number = input_info.split(" ->")
     company = add_employee(company, name, number)
+
+for key, value in company.items():
+    print(f"{key}")
+    for id_employee in value:
+        print("-- {}".format(id_employee))
