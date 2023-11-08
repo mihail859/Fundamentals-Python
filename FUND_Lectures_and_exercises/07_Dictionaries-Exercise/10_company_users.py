@@ -16,4 +16,4 @@ while True:
 for key, value in company.items():
     print(f"{key}")
     for id_employee in value:
-        print("-- {}".format(id_employee))
+        print("--{}".format(id_employee))
