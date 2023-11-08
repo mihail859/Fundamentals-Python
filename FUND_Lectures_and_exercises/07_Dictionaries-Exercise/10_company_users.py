@@ -1,5 +1,6 @@
 def add_employee(company_dict, company_name, employee_id):
-    pass
+    if employee_id not in company_dict.keys():
+        company_dict[company_name] = []
 
 
 company = dict()
