@@ -9,7 +9,10 @@ def first(dictionary, side, user):
 
 
 def second(dictionary, user, side):
-    pass
+    for key, value in dictionary.values():
+        if user in value:
+            dictionary[key].pop(value.index(user))
+            
 
 
 force_dict = dict()
@@ -24,4 +27,9 @@ while True:
         force_user = split_line[1]
         force_dict = first(force_dict, force_side, force_user)
     elif "->" in input_line:
-        pass
+        #a "force_user -> force_side"
+        split_line = input_line.split(" -> ")
+        force_user = split_line[0]
+        force_side = split_line[1]
+        force_dict = second(force_dict, force_user, force_side)
+
