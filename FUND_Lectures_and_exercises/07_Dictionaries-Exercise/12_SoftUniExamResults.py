@@ -1,7 +1,7 @@
 def add_student_score(student_dict, name, course, points):
     if name not in student_dict.keys():
-        student_dict[name] = {'score': []}
-    student_dict[name]['score'].append(points)
+        student_dict[name] = []
+    student_dict[name].append(points)
     return student_dict
 
 
@@ -11,7 +11,11 @@ def banned_student(student_dict, name):
 
 
 def add_stack(tech_dict, technology):
-    pass
+    if technology not in tech_dict.keys():
+        tech_dict[technology] = 0
+    tech_dict[technology] += 1
+    return tech_dict
+
 
 students = dict()
 tech_stack = dict()
@@ -31,4 +35,12 @@ while True:
                                      technology_or_banned_command,
                                      task_points)
         tech_stack = add_stack(tech_stack, technology_or_banned_command)
-print(students)
+
+
+print("Results:")
+for key, value in students.items():
+    print(f"{key} | {max(value)}")
+
+print("Submissions:")
+for course_name, count in tech_stack.items():
+    print(f"{course_name} - {count}")
