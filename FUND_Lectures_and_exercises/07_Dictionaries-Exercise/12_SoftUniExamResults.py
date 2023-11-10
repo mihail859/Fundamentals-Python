@@ -1,6 +1,6 @@
 def add_student_score(student_dict, name, course, points):
     if name not in student_dict.keys():
-        student_dict[name] = {'language': course, 'score': []}
+        student_dict[name] = {'score': []}
     student_dict[name]['score'].append(points)
     return student_dict
 
@@ -10,8 +10,11 @@ def banned_student(student_dict, name):
     return student_dict
 
 
-students = dict()
+def add_stack(tech_dict, technology):
+    pass
 
+students = dict()
+tech_stack = dict()
 while True:
     input_line = input()
     if input_line == "exam finished":
@@ -27,3 +30,5 @@ while True:
                                      name_student,
                                      technology_or_banned_command,
                                      task_points)
+        tech_stack = add_stack(tech_stack, technology_or_banned_command)
+print(students)
