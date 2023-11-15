@@ -13,10 +13,14 @@ for sequence in input_line:
         number = int(sequence[1:-1])
         current_sum += number * letter_position
     if sequence[-1].isupper():
-        letter_position = ord(sequence[0]) - 64
+        letter_position = ord(sequence[-1]) - 64
         number = int(sequence[1:-1])
-        current_sum += number - letter_position
+        current_sum -= letter_position
     if sequence[-1].islower():
-        letter_position = ord(sequence[0]) - 96
+        letter_position = ord(sequence[-1]) - 96
         number = int(sequence[1:-1])
-        current_sum += number * letter_position
+        current_sum += letter_position
+
+    total_sum += current_sum
+
+print(f"{total_sum:.2f}")
