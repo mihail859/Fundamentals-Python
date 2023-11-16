@@ -1,13 +1,21 @@
-string_input = input()
-output = ''
-pattern = ""
-for i in range(len(string_input)):
-    current_ch = string_input[i]
-    if not current_ch.isdigit():
-        pattern += current_ch
-    if current_ch.isdigit() and string_input[i + 1].isdigit():
-        output += int(current_ch + string_input[i + 1]) * pattern.isupper()
-        pattern = ""
-    if current_ch.isdigit():
-        output += int(current_ch) * pattern.isupper()
-        pattern = ""
+command = input().upper()
+
+current_message = ""
+iterations = ""
+final_message = ""
+
+for index in range(len(command)):
+    if not command[index].isdigit():
+        current_message += command[index]
+    else:
+        for idx in range(index, len(command)):
+            if command[idx].isdigit():
+                iterations += command[idx]
+            else:
+                break
+        final_message += current_message * int(iterations)
+        current_message = ""
+        iterations = ""
+
+print(f"Unique symbols used: {len(set(final_message))}")
+print(final_message)
