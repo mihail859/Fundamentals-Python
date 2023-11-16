@@ -1,3 +1,4 @@
 string_input = input()
-for ch in string_input:
+for i in range(len(string_input)):
+    current_ch = string_input[i]
     
