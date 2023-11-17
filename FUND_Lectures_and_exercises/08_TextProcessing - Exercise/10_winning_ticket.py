@@ -1,6 +1,6 @@
 def check(current_ticket):
     symbols = ['@', '#', '$', '^']
-    if not len(current_ticket) == 20:
+    if len(current_ticket) != 20:
         return "invalid ticket"
     left_part = current_ticket[0:10]
     right_part = current_ticket[10:]
@@ -15,6 +15,6 @@ def check(current_ticket):
     return f'ticket "{current_ticket}" - no match'
 
 
-lottery_tickets = input().split(", ")
+lottery_tickets = [ticket.strip() for ticket in input().split(", ")]
 for ticket in lottery_tickets:
     print(check(ticket))
