@@ -8,4 +8,4 @@ valid_numbers = []
 for match in matches:
     valid_numbers.append(match.group(0))
 
-print(valid_numbers)
+print(", ".join(valid_numbers))
