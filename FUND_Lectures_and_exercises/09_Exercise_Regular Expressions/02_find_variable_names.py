@@ -1,6 +1,6 @@
 import re
 
-pattern = '_[A-Za-z0-9]+'
+pattern = r'\b_[A-Za-z0-9]+\b'
 data = input()
 
 result = re.findall(pattern, data)
