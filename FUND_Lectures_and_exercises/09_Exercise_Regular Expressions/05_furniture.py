@@ -18,5 +18,7 @@ while line != "Purchase":
 
     line = input()
 
-print(bought_furniture)
-print(total_price)
+print("Bought furniture:")
+for product in bought_furniture:
+    print(product)
+print(f"Total money spend: {total_price:.2f}")
