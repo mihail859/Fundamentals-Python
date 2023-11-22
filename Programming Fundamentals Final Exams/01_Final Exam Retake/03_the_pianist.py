@@ -3,6 +3,7 @@ def add(dictionary, piece_name, composer_name, key_sign):
         print(f"{piece_name} is already in the collection!")
         return dictionary
     dictionary[piece_name] = {"composer": composer_name, "key": key_sign}
+    print(f"{piece_name} by {composer_name} in {key_sign} added to the collection!")
     return dictionary
 
 
@@ -16,7 +17,12 @@ def remove_piece(dictionary, piece_name):
 
 
 def change_key(dictionary, piece_name, new_key_signature):
-    pass
+    if piece_name in dictionary.keys():
+        dictionary[piece_name]["key"] = new_key_signature
+        print(f"Changed the key of {piece_name} to {new_key_signature}!")
+        return dictionary
+    print(f"Invalid operation! {piece_name} does not exist in the collection.")
+    return dictionary
 
 
 number_of_pieces = int(input())
@@ -44,3 +50,6 @@ while True:
         old_piece = params[0]
         new_key = params[1]
         dictionary_pieces = change_key(dictionary_pieces, old_piece, new_key)
+
+for key_dict, value in dictionary_pieces.items():
+    print(f"{key_dict} -> Composer: {value['composer']}, Key: {value['key']}")
