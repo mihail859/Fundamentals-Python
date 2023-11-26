@@ -1,1 +1,1 @@
-# FunadamentalsExam
+# Funadamentals Course from SoftUni
