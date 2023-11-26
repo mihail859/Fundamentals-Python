@@ -1,1 +1,1 @@
-# Funadamentals Course from SoftUni
+# Programming Fundamentals with Python
