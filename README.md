@@ -1,1 +1,1 @@
-# FunadamentalsExam
+# Programming Fundamentals with Python - SoftUni
