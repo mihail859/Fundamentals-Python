@@ -5,11 +5,11 @@ def take_odd(line):
 
 def cut_function(line, idx, len_line):
     substring = line[idx:idx + len_line]
-    line = line.replace(substring, '')
+    line = line.replace(substring, '', 1)
     return line
 
 
-def substitute(line, substring, replacement):
+def substitute_func(line, substring, replacement):
     if substring not in line:
         print("Nothing to replace!")
     else:
@@ -21,7 +21,10 @@ def substitute(line, substring, replacement):
 input_line = input()
 while True:
     command, *params = input().split()
-    if command == 'TakeOdd':
+    if command == 'Done':
+        break
+
+    elif command == 'TakeOdd':
         input_line = take_odd(input_line)
         print(input_line)
 
@@ -34,3 +37,6 @@ while True:
     elif command == 'Substitute':
         substr = params[0]
         substitute = params[1]
+        input_line = substitute_func(input_line, substr, substitute)
+
+print(f"Your password is: {input_line}")
