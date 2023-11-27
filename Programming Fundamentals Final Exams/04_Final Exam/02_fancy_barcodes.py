@@ -2,13 +2,21 @@ import re
 
 n = int(input())
 
-pattern = r'(@)(#+)(?P<product>[A-Z][A-Za-z0-9]{5,})\1\2'
+pattern = r'@#+[A-Z][A-Za-z0-9]{4,}[A-Z]@#+'
 
-products = []
 for _ in range(n):
     input_line = input()
-    result = re.finditer(pattern, input_line)
-    for p in result:
-        product = p.group('product')
-        products.append(product)
-print(products)
+    barcode_group = ""
+    result = re.match(pattern, input_line)
+    if result:
+        digits = re.findall(r'\d', input_line)
+        if digits:
+            for el in digits:
+                barcode_group = "".join(digits)
+        else:
+            barcode_group = "00"
+
+        print(f"Product group: {barcode_group}")
+
+    else:
+        print("Invalid barcode")
