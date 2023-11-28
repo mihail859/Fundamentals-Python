@@ -11,8 +11,10 @@ for _ in range(n):
     if result:
         digits_result = re.findall(r'\d', line)
         if digits_result:
-            pass
+            for i in digits_result:
+                digits += i
         else:
             digits = '00'
+        print(f"Product group: {digits}")
     else:
         print("Invalid barcode")
