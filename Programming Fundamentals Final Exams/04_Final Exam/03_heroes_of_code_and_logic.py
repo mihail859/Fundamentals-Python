@@ -40,9 +40,9 @@ def heal(dictionary, hero, amount):
     dictionary[hero]['hp'] += amount
     if dictionary[hero]['hp'] >= 100:
         dictionary[hero]['hp'] = 100
-        print(f"{hero} recharged for {100 - current_amount} HP!")
+        print(f"{hero} healed for {100 - current_amount} HP!")
     else:
-        print(f"{hero} recharged for {amount} HP!")
+        print(f"{hero} healed for {amount} HP!")
 
     return dictionary
 
@@ -84,4 +84,7 @@ while True:
         amount_changed = int(params[1])
         heroes_dict = heal(heroes_dict, hero_name, amount_changed)
 
-print(heroes_dict)
+for key, value in heroes_dict.items():
+    print(key)
+    print(f"  HP: {value['hp']}")
+    print(f"  MP: {value['mp']}")
