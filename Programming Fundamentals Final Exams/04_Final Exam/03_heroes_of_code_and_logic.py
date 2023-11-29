@@ -27,9 +27,22 @@ def recharge(dictionary, hero, amount):
     current_amount = dictionary[hero]['mp']
     dictionary[hero]['mp'] += amount
     if dictionary[hero]['mp'] >= 200:
+        dictionary[hero]['mp'] = 200
         print(f"{hero} recharged for {200 - current_amount} MP!")
     else:
         print(f"{hero} recharged for {amount} MP!")
+
+    return dictionary
+
+
+def heal(dictionary, hero, amount):
+    current_amount = dictionary[hero]['hp']
+    dictionary[hero]['hp'] += amount
+    if dictionary[hero]['hp'] >= 100:
+        dictionary[hero]['hp'] = 100
+        print(f"{hero} recharged for {100 - current_amount} HP!")
+    else:
+        print(f"{hero} recharged for {amount} HP!")
 
     return dictionary
 
@@ -66,4 +79,9 @@ while True:
         amount_changed = int(params[1])
         heroes_dict = recharge(heroes_dict, hero_name, amount_changed)
 
-    
+    elif command == "Heal":
+        hero_name = params[0]
+        amount_changed = int(params[1])
+        heroes_dict = heal(heroes_dict, hero_name, amount_changed)
+
+print(heroes_dict)
