@@ -23,6 +23,17 @@ def take_damage(dictionary, hero, damage, attacker):
     return dictionary
 
 
+def recharge(dictionary, hero, amount):
+    current_amount = dictionary[hero]['mp']
+    dictionary[hero]['mp'] += amount
+    if dictionary[hero]['mp'] >= 200:
+        print(f"{hero} recharged for {200 - current_amount} MP!")
+    else:
+        print(f"{hero} recharged for {amount} MP!")
+
+    return dictionary
+
+
 n = int(input())
 heroes_dict = dict()
 
@@ -49,5 +60,10 @@ while True:
         damage_points = int(params[1])
         attacker_name = params[2]
         heroes_dict = take_damage(heroes_dict, hero_name, damage_points, attacker_name)
+
+    elif command == "Recharge":
+        hero_name = params[0]
+        amount_changed = int(params[1])
+        heroes_dict = recharge(heroes_dict, hero_name, amount_changed)
 
     
