@@ -1,5 +1,5 @@
 def cast_spell(dictionary, hero, mp, spell):
-    if dictionary[hero]['mp'] > mp:
+    if dictionary[hero]['mp'] >= mp:
         dictionary[hero]['mp'] -= mp
         left_mp = dictionary[hero]['mp']
         print(f"{hero} has successfully cast {spell} and now has {left_mp} MP!")
