@@ -11,7 +11,16 @@ def cast_spell(dictionary, hero, mp, spell):
 
 
 def take_damage(dictionary, hero, damage, attacker):
-    pass
+    dictionary[hero]['hp'] -= damage
+    if dictionary[hero]['hp'] > 0:
+        current_hp = dictionary[hero]['hp']
+        print(f"{hero} was hit for {damage} HP by {attacker} and now has {current_hp} HP left!")
+
+    else:
+        del dictionary[hero]
+        print(f"{hero} has been killed by {attacker}!")
+
+    return dictionary
 
 
 n = int(input())
@@ -39,3 +48,6 @@ while True:
         hero_name = params[0]
         damage_points = int(params[1])
         attacker_name = params[2]
+        heroes_dict = take_damage(heroes_dict, hero_name, damage_points, attacker_name)
+
+    
